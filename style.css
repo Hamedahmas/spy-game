@@ -1,0 +1,73 @@
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background: linear-gradient(to bottom, #222, #444);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+h1, h2, h3 {
+  margin: 20px 0;
+}
+.circle {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 40px auto;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+.player {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #00bcd4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+}
+.code-box, .all-codes {
+  margin: 20px auto;
+  background: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 320px;
+}
+.vote-buttons button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+}
+.vote-buttons button:hover {
+  background-color: #45a049;
+}
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  margin: 10px;
+}
+button {
+  cursor: pointer;
+}
+@media (max-width: 500px) {
+  .player {
+    width: 50px;
+    height: 50px;
+    font-size: 12px;
+  }
+  .circle {
+    width: 250px;
+    height: 250px;
+  }
+}

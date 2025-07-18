@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بازی جاسوس</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>بازی جاسوس</h1>
+  <h2>تو: <span id="you"></span></h2>
+
+  <div class="circle" id="table"></div>
+
+  <div class="code-box" id="codeBox">
+    <p>کد مرحله فعلی: <span id="code"></span></p>
+  </div>
+
+  <div id="submitArea">
+    <input id="yourCode" placeholder="کد خودتو وارد کن">
+    <button onclick="submitCode()">ارسال کد</button>
+  </div>
+
+  <div class="all-codes" id="allCodes" style="display:none;">
+    <h3>کدهای همه بازیکن‌ها:</h3>
+    <ul id="codesList"></ul>
+  </div>
+
+  <div class="vote-buttons" id="voteSection" style="display:none;">
+    <h2>رای بده که جاسوس کیه:</h2>
+    <div id="voteButtons"></div>
+  </div>
+
+  <div id="result" style="margin-top:30px;"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
