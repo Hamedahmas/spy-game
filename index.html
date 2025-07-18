@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>بازی جاسوس</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <h1>🎭 بازی جاسوس</h1>
+    <div id="role-selection" class="card">
+      <h2>نقش خود را انتخاب کنید</h2>
+      <button id="btn-host" class="btn">🎩 داور</button>
+      <button id="btn-player" class="btn">🎮 بازیکن</button>
+    </div>
+
+    <div id="host-panel" class="hidden card">
+      <label>تعداد بازیکن:</label>
+      <select id="player-count">
+        <option value="3">۳ نفر</option>
+        <option value="4">۴ نفر</option>
+        <option value="5">۵ نفر</option>
+        <option value="6">۶ نفر</option>
+        <option value="7">۷ نفر</option>
+        <option value="8">۸ نفر</option>
+        <option value="9">۹ نفر</option>
+        <option value="10">۱۰ نفر</option>
+      </select>
+      <button id="generate-code" class="btn success">🎫 ایجاد کد بازی</button>
+      <div id="game-code-display" class="info hidden">
+        کد ورود: <span id="game-code"></span>
+      </div>
+    </div>
+
+    <div id="join-panel" class="hidden card">
+      <label>کد بازی را وارد کنید:</label>
+      <input type="text" id="join-code" />
+      <button id="join-game" class="btn">ورود به بازی</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
