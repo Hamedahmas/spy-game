@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>صفحه بازی</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>مرحله بازی</h1>
+  <div id="info"></div>
+  <div id="code-box"></div>
+  <div id="chat"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    let myAnimal = localStorage.getItem("animal");
+    let roomId = localStorage.getItem("roomId");
+
+    document.getElementById("info").innerText = `شما (${myAnimal}) در اتاق ${roomId}`;
+
+    socket.emit("join-room", { roomId });
+
+    socket.on("receive-code", ({ code }) => {
+      document.getElementById("code-box").innerHTML += `<p>کد: ${code}</p>`;
+    });
+
+    socket.on("chat-started", () => {
+      document.getElementById("chat").innerHTML = \`
+        <input id="msg" placeholder="پیام شما">
+        <button onclick="sendMessage()">ارسال</button>
+        <div id="messages"></div>\`;
+    });
+
+    socket.on("receive-message", ({ msg, from }) => {
+      document.getElementById("messages").innerHTML += `<p><b>${from}:</b> ${msg}</p>`;
+    });
+
+    function sendMessage() {
+      const msg = document.getElementById("msg").value;
+      socket.emit("send-message", { roomId, msg, from: myAnimal });
+    }
+
+    socket.on("vote-started", () => {
+      const target = prompt("به نظر شما جاسوس کیه؟ (کد بازیکن یا نام)");
+      socket.emit("vote", { roomId, votedId: target });
+    });
+
+    socket.on("game-result", ({ result, spyAnimal }) => {
+      alert(`${result} | جاسوس: ${spyAnimal}`);
+    });
+  </script>
+</body>
+</html>

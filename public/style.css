@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+  direction: rtl;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+#chat {
+  margin-top: 20px;
+}
+
+#messages {
+  background: #eee;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+input {
+  padding: 8px;
+  margin: 5px;
+}
